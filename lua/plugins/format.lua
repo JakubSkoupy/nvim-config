@@ -10,7 +10,8 @@ return {
                 ".local/share/nvim/lazy",
             },
             formatter_by_ft = {
-                css = formatters.lsp,
+                tsx = formatters.prettierd,
+                css = formatters.prettierd,
                 html = formatters.lsp,
                 java = formatters.lsp,
                 javascript = formatters.lsp,
