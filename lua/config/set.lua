@@ -1,4 +1,3 @@
-vim.cmd.colorscheme("nordfox")
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.guicursor = "i:ver100-Cursor"

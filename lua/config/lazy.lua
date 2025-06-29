@@ -8,8 +8,8 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require("lazy").setup({
-    spec = { { import = "plugins" }, { import = "plugins.lsp" }, { import = "plugins.dap" } },
+    spec = { { import = "plugins" } },
 
-    install = { colorscheme = { "nordfox" } },
+    -- install = { colorscheme = { "nordfox" } },
     checker = { enabled = true },
 })
