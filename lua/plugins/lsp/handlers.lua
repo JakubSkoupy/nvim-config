@@ -46,9 +46,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
         keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
         opts.desc = "Restart LSP"
-        keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+        keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)                          -- mapping to restart lsp if necessary
 
-        keymap.set("n", "<leader>go", "<cmd>Telescope lsp_document_symbols<CR>", opts) -- list document symbols
+        keymap.set("n", "<leader>go", "<cmd>Telescope lsp_document_symbols<CR>", opts)  -- list document symbols
+
+        keymap.set("n", "<leader>gO", "<cmd>Telescope lsp_workspace_symbols<CR>", opts) -- list document symbols
     end,
 })
 
