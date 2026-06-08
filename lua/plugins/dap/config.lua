@@ -5,9 +5,9 @@ vim.keymap.set("n", "<F5>", dap.continue)
 vim.keymap.set("n", "<F10>", dap.step_over)
 vim.keymap.set("n", "<F11>", dap.step_into)
 vim.keymap.set("n", "<F12>", dap.step_out)
-vim.keymap.set("n", "<Leader>bb", dap.toggle_breakpoint)
-vim.keymap.set("n", "<Leader>BB", function()
-    dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+vim.keymap.set("n", "<Leader>bp", dap.toggle_breakpoint)
+vim.keymap.set("n", "<Leader>Bb", function()
+	dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 end)
 
 -- Example: adapter config (like for Node.js)
@@ -30,29 +30,29 @@ end)
 --
 
 dap.adapters.cppdbg = {
-    id = 'cppdbg',
-    type = 'executable',
-    command = vim.fn.stdpath("data") .. '/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+	id = "cppdbg",
+	type = "executable",
+	command = vim.fn.stdpath("data") .. "/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
 }
 
 dap.configurations.cpp = {
-    {
-        name = "Launch file",
-        type = "cppdbg",
-        request = "launch",
-        program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}',
-        stopAtEntry = true,
-        setupCommands = {
-            {
-                text = '-enable-pretty-printing',
-                description = 'enable pretty printing',
-                ignoreFailures = false
-            },
-        },
-    },
+	{
+		name = "Launch file",
+		type = "cppdbg",
+		request = "launch",
+		program = function()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopAtEntry = true,
+		setupCommands = {
+			{
+				text = "-enable-pretty-printing",
+				description = "enable pretty printing",
+				ignoreFailures = false,
+			},
+		},
+	},
 }
 
 dap.configurations.c = dap.configurations.cpp

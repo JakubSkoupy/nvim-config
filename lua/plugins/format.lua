@@ -30,10 +30,10 @@ return {
                 yaml = formatters.lsp,
                 -- cs = formatters.csharpier,
 
-                cs = formatters.shell({ cmd = { "/usr/bin/dotnet format" } }),
+                -- cs = formatters.shell({ cmd = { "/usr/bin/dotnet format" } }),
                 c = formatters.shell({ cmd = { "clang-format", "-style=file" } }),
                 cpp = formatters.shell({ cmd = { "clang-format", "-style=file" } }),
-            }
+            },
         })
-    end
+    end,
 }
