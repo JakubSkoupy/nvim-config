@@ -54,6 +54,6 @@ return {
 
 		vim.keymap.set("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
 		vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true })
-		vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>bd", function() require("bufdelete").bufdelete(0, false) end, { noremap = true, silent = true })
 	end,
 }

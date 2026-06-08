@@ -1,23 +1,29 @@
 return {
     {
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate",
-        config = function()
-            require("plugins.lsp.mason")
-        end,
+        'williamboman/mason.nvim',
+        build = ':MasonUpdate',
+        opts = {
+            ui = {
+                icons = {
+                    package_installed = '✓',
+                    package_pending = '➜',
+                    package_uninstalled = '✗',
+                },
+            },
+        },
     },
     {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = { "williamboman/mason.nvim", "hrsh7th/cmp-nvim-lsp", "WhoIsSethDaniel/mason-tool-installer.nvim" },
-        config = function()
-            require("plugins.lsp.handlers")
-        end,
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        dependencies = { 'williamboman/mason.nvim' },
+        opts = {
+            ensure_installed = {
+                'prettier', 'stylua', 'isort', 'black', 'pylint', 'eslint_d',
+                'lua-language-server', 'pyright', 'kotlin-language-server',
+            },
+        },
     },
     {
-        "neovim/nvim-lspconfig",
-        dependencies = { "williamboman/mason-lspconfig.nvim" },
-        config = function()
-            require("plugins.lsp.servers")
-        end,
+        'hrsh7th/cmp-nvim-lsp',
+        lazy = false,
     },
 }
