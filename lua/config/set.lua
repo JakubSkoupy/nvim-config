@@ -19,6 +19,20 @@ vim.opt.scrolloff = 12
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "100"
 
+vim.diagnostic.config({
+    virtual_text = false,
+    signs = true,
+    underline = true,
+    severity_sort = true,
+    update_in_insert = false,
+})
+
+vim.api.nvim_create_autocmd("CursorHold", {
+    callback = function()
+        vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+    end,
+})
+
 vim.filetype.add({
     extension = {
         task = "glsl",
