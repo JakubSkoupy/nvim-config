@@ -15,6 +15,13 @@ return {
         local luasnip = require("luasnip")
 
         require("luasnip.loaders.from_vscode").lazy_load()
+
+        local lean_snip = vim.api.nvim_get_runtime_file("snippets/lean.json", false)[1]
+        if lean_snip then
+            require("luasnip.loaders.from_vscode").load({
+                paths = { vim.fn.fnamemodify(lean_snip, ":h") },
+            })
+        end
         cmp.setup({
 
             completion = {
